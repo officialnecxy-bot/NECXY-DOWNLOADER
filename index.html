@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#030303">
     <title>NECXY UNIVERSAL - Premium</title>
-    
+
+    <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22Necxy%20Universal%22,%22short_name%22:%22Necxy%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#030303%22,%22theme_color%22:%22#FF003C%22,%22icons%22:[{%22src%22:%22https://i.ibb.co/3mQw5NHQ/d643926adde3.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ID0+IGV2KTs=');
+            });
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -30,7 +39,6 @@
                         'spin-slow': 'spin 10s linear infinite',
                         'spin-reverse': 'spin 15s linear infinite reverse',
                         'scan': 'scanLine 3s ease-in-out infinite',
-                        // CHANGED: Duration increased to 40s for very slow movement
                         'color-cycle': 'colorCycle 40s ease-in-out infinite',
                     },
                     keyframes: {
@@ -47,10 +55,10 @@
                             '50%': { top: '100%', opacity: 1 }
                         },
                         colorCycle: {
-                            '0%, 100%': { background: 'radial-gradient(circle at center, rgba(255, 0, 60, 0.15) 0%, transparent 70%)', color: '#FF003C' }, /* YT Red */
-                            '25%': { background: 'radial-gradient(circle at center, rgba(214, 41, 118, 0.15) 0%, transparent 70%)', color: '#d62976' }, /* IG Pink */
-                            '50%': { background: 'radial-gradient(circle at center, rgba(24, 119, 242, 0.15) 0%, transparent 70%)', color: '#1877F2' }, /* FB Blue */
-                            '75%': { background: 'radial-gradient(circle at center, rgba(0, 242, 234, 0.15) 0%, transparent 70%)', color: '#00f2ea' }  /* TT Cyan */
+                            '0%, 100%': { background: 'radial-gradient(circle at center, rgba(255, 0, 60, 0.15) 0%, transparent 70%)', color: '#FF003C' },
+                            '25%': { background: 'radial-gradient(circle at center, rgba(214, 41, 118, 0.15) 0%, transparent 70%)', color: '#d62976' },
+                            '50%': { background: 'radial-gradient(circle at center, rgba(24, 119, 242, 0.15) 0%, transparent 70%)', color: '#1877F2' },
+                            '75%': { background: 'radial-gradient(circle at center, rgba(0, 242, 234, 0.15) 0%, transparent 70%)', color: '#00f2ea' }
                         }
                     }
                 }
@@ -70,7 +78,6 @@
             cursor: default;
         }
 
-        /* --- BACKGROUNDS --- */
         .bg-cyber {
             position: fixed;
             inset: 0;
@@ -89,10 +96,8 @@
             width: 120vw; height: 120vh;
             z-index: -1;
             pointer-events: none;
-            /* Animation handled by Tailwind utility */
         }
 
-        /* --- TAP ANIMATION --- */
         .cyber-tap {
             position: absolute;
             pointer-events: none;
@@ -114,7 +119,6 @@
             100% { transform: scale(3); opacity: 0; border-width: 0px; }
         }
 
-        /* Cyber Card */
         .cyber-card {
             background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(24px);
@@ -125,7 +129,6 @@
         }
         .cyber-card:hover { border-color: rgba(255, 0, 60, 0.3); }
 
-        /* --- PROFILE BADGE --- */
         .profile-badge {
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(12px);
@@ -148,7 +151,6 @@
             animation: scan 2s linear infinite;
         }
 
-        /* Input Field */
         .cyber-input {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -159,7 +161,6 @@
             box-shadow: 0 0 20px rgba(255, 0, 60, 0.15); 
         }
 
-        /* Main Button */
         .btn-yt { 
             background: linear-gradient(135deg, #FF003C 0%, #aa0022 100%); 
             box-shadow: 0 10px 30px -10px rgba(255, 0, 60, 0.4); 
@@ -172,7 +173,6 @@
         }
         .btn-cyber:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
-        /* Social Buttons */
         .social-btn {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
@@ -184,9 +184,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- ANIMATED TEXT GRADIENT --- */
         .animate-text-cycle {
-            /* CHANGED: Duration increased to 40s */
             animation: textCycle 40s ease-in-out infinite;
             background-size: 200% auto;
             background-clip: text;
@@ -195,10 +193,10 @@
         }
 
         @keyframes textCycle {
-            0%, 100% { background-image: linear-gradient(to right, #FF003C, #ff4d79); } /* YT */
-            25% { background-image: linear-gradient(to right, #833AB4, #FD1D1D); } /* IG */
-            50% { background-image: linear-gradient(to right, #1877F2, #4F9EF8); } /* FB */
-            75% { background-image: linear-gradient(to right, #00f2ea, #ff0050); } /* TT */
+            0%, 100% { background-image: linear-gradient(to right, #FF003C, #ff4d79); }
+            25% { background-image: linear-gradient(to right, #833AB4, #FD1D1D); }
+            50% { background-image: linear-gradient(to right, #1877F2, #4F9EF8); }
+            75% { background-image: linear-gradient(to right, #00f2ea, #ff0050); }
         }
 
         ::-webkit-scrollbar { width: 4px; }
@@ -227,7 +225,6 @@
         </div>
 
         <div onclick="openProfile()" class="profile-badge flex items-center gap-3.5 pl-4 pr-1.5 py-1.5 rounded-full cursor-pointer group select-none relative overflow-visible">
-            
             <div class="text-right mr-1 hidden sm:block z-10">
                 <p class="text-[9px] text-gray-400 font-mono uppercase tracking-wider group-hover:text-white transition-colors font-bold">Authenticated</p>
                 <div class="flex items-center justify-end gap-1.5">
@@ -235,13 +232,10 @@
                     <p class="text-xs font-bold text-white leading-none">Necxy Profile</p>
                 </div>
             </div>
-            
             <span class="text-[10px] font-bold text-gray-400 sm:hidden tracking-wider font-mono group-hover:text-white transition-colors z-10">PROFILE</span>
-            
             <div class="relative w-10 h-10 flex items-center justify-center z-10">
                 <div class="absolute inset-0 rounded-full border border-dashed border-white/20 group-hover:border-neon-red/60 animate-spin-slow transition-colors"></div>
                 <div class="absolute inset-[3px] rounded-full border border-dotted border-white/20 group-hover:border-neon-red/60 animate-spin-reverse transition-colors"></div>
-
                 <div class="w-8 h-8 rounded-full relative overflow-hidden bg-black ring-1 ring-white/10">
                     <img src="https://i.ibb.co/3mQw5NHQ/d643926adde3.png" class="w-full h-full object-cover">
                     <div class="scan-line"></div>
@@ -251,7 +245,6 @@
     </header>
 
     <main class="flex-grow flex flex-col items-center justify-center relative z-10 w-full max-w-2xl mx-auto">
-        
         <div class="text-center mb-10 space-y-4 animate-modal-in">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] text-gray-300 font-mono font-bold tracking-widest shadow-lg">
                 <span class="relative flex h-2 w-2">
@@ -260,18 +253,15 @@
                 </span>
                 ALL-IN-ONE SYSTEM
             </div>
-            
             <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-white drop-shadow-2xl">
                 One Link. <span class="animate-text-cycle">Any File.</span>
             </h2>
-            
             <p class="text-gray-400 text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed">
                 The ultimate universal downloader. Supports <span class="text-white font-medium">YouTube</span>, <span class="text-white font-medium">Instagram</span>, <span class="text-white font-medium">TikTok</span>, <span class="text-white font-medium">Facebook</span> & more.
             </p>
         </div>
 
         <div class="w-full cyber-card rounded-3xl p-6 md:p-8 relative overflow-hidden">
-            
             <div class="space-y-6">
                 <div class="cyber-input rounded-2xl flex items-center p-1 pl-5">
                     <i class="fa-solid fa-link text-gray-500 text-sm mr-3"></i>
@@ -280,20 +270,17 @@
                         PASTE
                     </button>
                 </div>
-
                 <button onclick="processLink()" id="generateBtn" class="w-full h-14 btn-cyber btn-yt rounded-2xl font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 text-sm text-white group transition-all duration-500">
                     <span>INITIALIZE DOWNLOAD</span> 
                     <i class="fa-solid fa-bolt group-hover:animate-pulse"></i>
                 </button>
             </div>
-
             <div id="loader" class="hidden mt-8 text-center">
                 <div class="w-full h-1 bg-gray-900 rounded-full overflow-hidden mb-2 relative">
                     <div class="absolute top-0 left-0 h-full w-1/2 bg-neon-red animate-[gridFlow_1s_linear_infinite]" style="animation: moveLine 1s linear infinite;"></div>
                 </div>
                 <p class="text-[10px] font-mono text-gray-400 animate-pulse tracking-widest">ANALYZING LINK DATA...</p>
             </div>
-
             <div id="resultCard" class="hidden mt-8 pt-6 border-t border-dashed border-white/10 animate-modal-in">
                 <div class="flex flex-col sm:flex-row gap-6">
                     <div class="w-full sm:w-36 h-36 sm:h-24 shrink-0 relative rounded-xl overflow-hidden border border-white/10 group shadow-lg">
@@ -302,7 +289,6 @@
                             <i class="fa-solid fa-play text-white text-xl"></i>
                         </div>
                     </div>
-
                     <div class="flex-1 min-w-0 flex flex-col justify-center">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-300 uppercase">MEDIA FOUND</span>
@@ -310,14 +296,11 @@
                                 <span class="w-1 h-1 rounded-full bg-green-500"></span> READY
                             </span>
                         </div>
-                        
                         <h3 id="videoTitle" class="text-sm font-bold text-white line-clamp-1 mb-1 leading-snug">Media Title Here</h3>
                         <p id="videoAuthor" class="text-xs text-gray-500 mb-4 font-mono flex items-center gap-1">
                             <i class="fa-solid fa-share-nodes"></i> <span class="opacity-80">Unknown Source</span>
                         </p>
-                        
-                        <div id="downloadButtons" class="grid grid-cols-1 gap-2 max-h-40 overflow-y-auto pr-1 custom-scrollbar">
-                            </div>
+                        <div id="downloadButtons" class="grid grid-cols-1 gap-2 max-h-40 overflow-y-auto pr-1 custom-scrollbar"></div>
                     </div>
                 </div>
             </div>
@@ -330,32 +313,25 @@
             <span class="w-1 h-1 bg-white rounded-full"></span>
             <span>NECXY CORP</span>
         </div>
-
     </main>
 
     <div id="customAlert" class="fixed inset-0 z-[200] hidden flex items-center justify-center px-6">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"></div>
         <div class="relative w-full max-w-xs bg-[#090909] border border-white/10 rounded-2xl p-5 shadow-[0_0_40px_rgba(0,0,0,0.8)] animate-modal-in transform transition-all">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-neon-red shadow-[0_0_10px_#FF003C]"></div>
-            
             <div class="text-center">
                 <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-3 border border-white/10">
                     <i class="fa-solid fa-bell text-neon-red text-lg animate-pulse"></i>
                 </div>
                 <h3 class="text-white font-bold text-lg mb-1 tracking-tight">System Notice</h3>
-                <p id="alertMessage" class="text-gray-400 text-xs font-mono leading-relaxed mb-5">
-                    Operation completed successfully.
-                </p>
-                <button onclick="closeCustomAlert()" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-neon-red/50 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300">
-                    Dismiss
-                </button>
+                <p id="alertMessage" class="text-gray-400 text-xs font-mono leading-relaxed mb-5">Operation completed successfully.</p>
+                <button onclick="closeCustomAlert()" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-neon-red/50 text-white text-xs font-bold tracking-widest uppercase transition-all duration-300">Dismiss</button>
             </div>
         </div>
     </div>
 
     <div id="profileModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-md transition-opacity duration-300" onclick="closeProfile()"></div>
-        
         <div class="relative w-full max-w-sm bg-[#090909] border border-[#222] rounded-3xl p-6 shadow-2xl animate-modal-in overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-red via-purple-600 to-transparent"></div>
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-neon-red/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -383,20 +359,15 @@
                         <p class="text-[9px] text-gray-500 mt-0.5">Join Community</p>
                     </div>
                 </a>
-
                 <a href="https://www.instagram.com/imwilliambutcher?igsh=MTFuNHl6azYzeHZoag==" target="_blank" class="social-btn flex flex-col items-center justify-center gap-2 p-4 rounded-2xl text-white group">
                     <i class="fa-brands fa-instagram text-pink-500 text-2xl group-hover:scale-110 transition-transform"></i>
                     <span class="text-[10px] uppercase tracking-wider text-gray-400 group-hover:text-white font-bold">Instagram</span>
                 </a>
-
                 <a href="https://t.me/i_necxy" target="_blank" class="social-btn flex flex-col items-center justify-center gap-2 p-4 rounded-2xl text-white group">
                     <i class="fa-regular fa-paper-plane text-blue-300 text-2xl group-hover:scale-110 transition-transform"></i>
                     <span class="text-[10px] uppercase tracking-wider text-gray-400 group-hover:text-white font-bold">Contact</span>
                 </a>
-
                 <button onclick="showAlert('Discord server is under maintenance.')" class="social-btn p-3 rounded-2xl group"><i class="fa-brands fa-discord text-indigo-400 text-lg"></i></button>
-                <button onclick="showAlert('Reddit community coming soon.')" class="social-btn p-3 rounded-2xl group"><i class="fa-brands fa-reddit-alien text-orange-500 text-lg"></i></button>
-                <button onclick="showAlert('X (Twitter) handle not linked.')" class="social-btn p-3 rounded-2xl group"><i class="fa-brands fa-x-twitter text-white text-lg"></i></button>
                 <button onclick="showAlert('WhatsApp support is busy.')" class="social-btn p-3 rounded-2xl group"><i class="fa-brands fa-whatsapp text-green-500 text-lg"></i></button>
             </div>
             
@@ -411,13 +382,11 @@
     </style>
 
     <script>
-        // --- TAP ANIMATION ---
         document.addEventListener('click', function(e) {
             const container = document.createElement('div');
             container.classList.add('cyber-tap');
             container.style.left = e.clientX + 'px';
             container.style.top = e.clientY + 'px';
-
             const burst = document.createElement('div');
             burst.classList.add('burst');
             container.appendChild(burst);
@@ -425,7 +394,6 @@
             setTimeout(() => container.remove(), 800);
         });
 
-        // --- CUSTOM ALERT LOGIC ---
         function showAlert(msg) {
             document.getElementById('alertMessage').innerText = msg;
             document.getElementById('customAlert').classList.remove('hidden');
@@ -435,11 +403,9 @@
             document.getElementById('customAlert').classList.add('hidden');
         }
 
-        // --- PROFILE ---
         function openProfile() { document.getElementById('profileModal').classList.remove('hidden'); }
         function closeProfile() { document.getElementById('profileModal').classList.add('hidden'); }
 
-        // --- API CONFIG ---
         const RAPID_API_KEY = "7a77e5ee86msh0a58908122661d0p13bc09jsn5c76755fd90d";
         const UNIVERSAL_HOST = "social-download-all-in-one.p.rapidapi.com";
         const UNIVERSAL_URL = `https://${UNIVERSAL_HOST}/v1/social/autolink`;
@@ -486,8 +452,6 @@
                 if (!response.ok) throw new Error("API Connection Error");
                 
                 const data = await response.json();
-                console.log("API Response:", data);
-
                 let title = data.title || "Social Media Content";
                 let author = data.author || "Unknown User";
                 let thumb = data.thumbnail || "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=200";
@@ -504,7 +468,6 @@
 
                 if (downloadLinks.length === 0) throw new Error("No media found. Link might be private.");
 
-                // Update UI
                 document.getElementById('thumb').src = thumb;
                 document.getElementById('videoTitle').innerText = title;
                 document.getElementById('videoAuthor').innerHTML = `<i class="fa-solid fa-share-nodes"></i> ${author}`;
@@ -522,7 +485,6 @@
                 resultCard.classList.remove('hidden');
 
             } catch (error) {
-                console.error(error);
                 showAlert("Failed: " + error.message);
             } finally {
                 loader.classList.add('hidden');
@@ -538,10 +500,8 @@
             btn.href = url; 
             btn.target = "_blank";
             btn.setAttribute('download', ''); 
-            
             const icon = isAudio ? 'fa-music' : 'fa-video';
             const colorClass = isAudio ? 'text-green-400 group-hover:text-green-300' : 'text-gray-300 group-hover:text-white';
-            
             btn.className = "flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5 text-xs group hover:bg-white/10 hover:border-white/20 transition-all duration-300";
             btn.innerHTML = `
                 <div class="flex items-center gap-3"><i class="fa-solid ${icon} ${colorClass}"></i><span class="font-mono text-gray-300 font-bold">${quality}</span></div>
